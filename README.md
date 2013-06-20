@@ -8,7 +8,7 @@ Example
 
 ```
 SRLocation *location = [[SRLocation alloc] init];
-[_location startGetLocationWithComplete:^(CLLocation *location) {
+[location startGetLocationWithComplete:^(CLLocation *location) {
     // complete to update the location
 } failed:^(NSError *error) {
         
