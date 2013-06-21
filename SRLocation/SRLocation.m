@@ -19,6 +19,7 @@
 - (id)init
 {
     if (self = [super init]) {
+        self.fixLocationInChina = YES;
         self.m_sqlite = [[CSqlite alloc] init];
         [_m_sqlite openSqlite];
     }
@@ -91,8 +92,11 @@
         offLog = sqlite3_column_int(stmtL, 1);
     }
     
-    yGps.latitude = yGps.latitude + offLat * 0.0001;
-    yGps.longitude = yGps.longitude + offLog * 0.0001;
+    if (offLat > 0 && offLog > 0 && _fixLocationInChina == YES) {
+        yGps.latitude = yGps.latitude + offLat * 0.0001;
+        yGps.longitude = yGps.longitude + offLog * 0.0001;
+    }
+    
     return yGps;
 }
 

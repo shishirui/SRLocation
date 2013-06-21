@@ -18,6 +18,7 @@
 
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (nonatomic) int minTries;
+@property (nonatomic) BOOL fixLocationInChina;
 
 - (void)startGetLocationWithComplete:(void (^)(CLLocation *location))complete failed:(void (^)(NSError *error))failed;
 - (void)cancel;
